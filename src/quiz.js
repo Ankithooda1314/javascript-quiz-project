@@ -36,4 +36,21 @@ class Quiz {
     hasEnded() {
         return this.currentQuestionIndex >= this.questions.length
     }
+
+    filterQuestionsByDifficulty(difficulty) {
+        if(typeof difficulty !== "number" || difficulty < 1 || difficulty > 3) {
+            return;
+        } 
+        this.questions = this.questions.filter(question => question.difficulty === difficulty)
+    }
+
+    averageDifficulty() {
+        if( this.questions.length === 0) {
+            return 0
+        }
+        const total = this.questions.reduce((acc, currentNumber) => {
+            return acc + currentNumber.difficulty;
+        }, 0) 
+        return total /this.questions.length
+    }
 }

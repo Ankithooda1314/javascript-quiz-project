@@ -14,6 +14,7 @@ class Question {
     //   this.choices[i] = this.choices[j];
     //   this.choices[j] = temp;
     // }
+    
     this.choices.sort(() => Math.random() - 0.5);
     return this.choices;
   }
